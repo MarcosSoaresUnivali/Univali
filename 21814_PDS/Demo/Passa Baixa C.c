@@ -5,7 +5,7 @@ Walter vers�o 1.0
  */
 #include <stdio.h>
 #include <fcntl.h>
-#include <io.h>
+//#include <io.h>
 
 
 #define NSAMPLES       100	// Tamanho da m�dia

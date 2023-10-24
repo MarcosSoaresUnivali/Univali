@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------------------------       
+//---------------------------------------------------------------------------------------------
 //  Exemplo – Transformação “s” -> “z”
 //
 //  fc =   1            a =     wc
@@ -8,7 +8,7 @@
 //  wc = 2.pi.fc        b =  (wc - Fl)
 //                          -----------
 //                           (Fl + wc)
-//---------------------------------------------------------------------------------------------       
+//---------------------------------------------------------------------------------------------
 #include <stdio.h>
 #include <fcntl.h>
 //#include <io.h>
@@ -26,30 +26,38 @@ int main()
     int Fl = Fs * 2;
     int n1 = Fs * t;
 
+    char file_inp[] = "Sweep40_3400Hz.pcm"; //"alo.pcm";
+    char file_out[] = "out_Sweep40_3400Hz.pcm"; //"resultado_eco.pcm";
+
     double      doispi  = M_PI * 2
             ,   fc      = 1000
             ,   wc      = doispi * fc
             ,   a       = (wc / (Fl + wc))
             ,   b       = ((wc - Fl) / (Fl + wc));
-    
+    p0                  = a;
+    p1                  = b;
+
+    printf("\n  In_File = %s\n", file_inp);
+    printf("\n  Ou_File = %s\n", file_out);
+    printf("\n  ------------------- "); //return 0;
     printf("\n  Fs      = %d\n", Fs);
     printf("\n  Fl      = %d\n", Fl);
     printf("\n  2.pi    = %lf\n", doispi);
     printf("\n  fc      = %lf\n", fc);
     printf("\n  wc      = %lf\n", wc);
-    printf("\n  a       = %lf\n", a);
-    printf("\n  b       = %lf\n", b);
-    return 0;
-
+    printf("\n  a = p0  = %lf\n", p0);
+    printf("\n  b = p1  = %lf\n", p1);
+    printf("\n  ------------------- "); //return 0;
+    //return 0;
 
     FILE *in_file, *out_file;
-    if ((in_file = fopen("alo.pcm", "rb")) == NULL) // Abrindo o arquivo de entrada
+    if ((in_file = fopen(file_inp, "rb")) == NULL) // Abrindo o arquivo de entrada
     {
         printf("\nErro: Nao abriu o arquivo de entrada\n");
         return 0;
     }
 
-    if ((out_file = fopen("resultado_eco.pcm", "wb")) == NULL) // Criando o arquivo de saida com o nome alterado
+    if ((out_file = fopen(file_out, "wb")) == NULL) // Criando o arquivo de saida com o nome alterado
     {
         printf("\nErro: Nao abriu o arquivo de saida\n");
         return 0;
@@ -83,5 +91,9 @@ int main()
 
     fclose(out_file); // Fechando os arquivos
     fclose(in_file);  // Fechando os arquivos
+ 
+    printf("\n  Gravado Ok -------- "); //return 0;
+    printf("\n  Ou_File = %s\n", file_out);
+    printf("\n  ------------------- "); //return 0;
     return 0;
 }
