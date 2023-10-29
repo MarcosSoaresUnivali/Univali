@@ -1,16 +1,14 @@
 //---------------------------------------------------------------------------------------------
 //  Exemplo – Transformação “s” -> “z”
 //
+// *********************************************
 //  fc =   1            a =     wc
-//     ---------            -----------
+//     -------              -----------
 //      2.pi.RC              (Fl + wc)
 //
 //  wc = 2.pi.fc        b =  (wc - Fl)
 //                          -----------
 //                           (Fl + wc)
-//  ====================================
-//  y[n] = a x[n] + a x[n-1] - b y[n-1]
-//  ====================================
 //---------------------------------------------------------------------------------------------
 #include <stdio.h>
 #include <fcntl.h>
@@ -22,18 +20,23 @@ int main()
 {
     int TAM = 0;
     short entrada, saida;
-
+    float y = 0, p0 = 1, p1 = 0.5, t = 0.0025;
+    // 0.0025 = 20 amostras
+    // 1 seg = Fs
     int Fs = 8000;
     int Fl = Fs * 2;
+    int n1 = Fs * t;
 
     char file_inp[] = "Sweep.pcm"; //"alo.pcm";
     char file_out[] = "out_Sweep.pcm"; //"resultado_eco.pcm";
 
     double      doispi  = M_PI * 2
-            ,   fc      = 1000
+            ,   fc      = 400
             ,   wc      = doispi * fc
             ,   a       = (wc / (Fl + wc))
             ,   b       = ((wc - Fl) / (Fl + wc));
+    p0                  = a;
+    p1                  = b;
 
     printf("\n  In_File = %s\n", file_inp);
     printf("\n  Ou_File = %s\n", file_out);
@@ -46,7 +49,14 @@ int main()
     printf("\n  a = p0  = %lf\n", p0);
     printf("\n  b = p1  = %lf\n", p1);
     printf("\n  ------------------- "); //return 0;
-    //return 0;
+    return 0;
+
+
+
+
+
+
+
 
     FILE *in_file, *out_file;
     if ((in_file = fopen(file_inp, "rb")) == NULL) // Abrindo o arquivo de entrada
