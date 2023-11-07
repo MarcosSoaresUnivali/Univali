@@ -5,10 +5,10 @@ Walter versão 1.0
  */
 #include <stdio.h>
 #include <fcntl.h>
-//#include <io.h>
+#include <io.h>
 
 
-#define NSAMPLES       32	// Tamanho da média
+#define NSAMPLES       100	// Tamanho da média
 
 int main()
 {
@@ -23,7 +23,7 @@ int main()
    //Carregando os coeficientes do filtro média móvel
    
    float coef[NSAMPLES]={
-   				#include "coefs_mm_32.dat"
+   				#include "Coeff_3_Blackman copy.dat"
    };
   
  
@@ -33,7 +33,7 @@ int main()
     printf("\nErro: Nao abriu o arquivo de entrada\n");
     return 0;
   }
-  if ((out_file = fopen("Sai_32_Sweep40_3400Hz.pcm","wb"))==NULL)
+  if ((out_file = fopen("Sai_3_Hamm_copy_Sweep40_3400Hz.pcm","wb"))==NULL)
   {
     printf("\nErro: Nao abriu o arquivo de saida\n");
     return 0;
@@ -75,6 +75,7 @@ int main()
  } while (n_amost);
 
 
+  printf("Gravou!");
    //fecha os arquivos de entrada de saída
    fclose(out_file);
    fclose(in_file);

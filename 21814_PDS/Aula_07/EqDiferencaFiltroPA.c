@@ -12,7 +12,7 @@
 //---------------------------------------------------------------------------------------------
 #include <stdio.h>
 #include <fcntl.h>
-//#include <io.h>
+#include <io.h>
 
 # define M_PI           3.14159265358979323846
 
@@ -27,7 +27,7 @@ int main()
     int Fl = Fs * 2;
     int n1 = Fs * t;
 
-    char file_inp[] = "Sweep.pcm"; //"alo.pcm";
+    char file_inp[] = "sweep.pcm"; //"alo.pcm";
     char file_out[] = "out_Sweep.pcm"; //"resultado_eco.pcm";
 
     double      doispi  = M_PI * 2
@@ -50,13 +50,6 @@ int main()
     printf("\n  b = p1  = %lf\n", p1);
     printf("\n  ------------------- "); //return 0;
     return 0;
-
-
-
-
-
-
-
 
     FILE *in_file, *out_file;
     if ((in_file = fopen(file_inp, "rb")) == NULL) // Abrindo o arquivo de entrada
