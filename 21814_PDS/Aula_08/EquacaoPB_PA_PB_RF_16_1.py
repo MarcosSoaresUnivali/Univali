@@ -64,9 +64,14 @@ dim_y = numpy.zeros(4999)           #Y[ ] holds the output signal
 pcm_inp_file    = "Sweep40_3400Hz.pcm"      #input file Convolution...
 #
 Fs              = 8000
-Fchz            = 2000
+#-------------------------------------------------------
+Fchz            = 1000
 Fc              = Fchz / Fs         # = BW (normalized)
 Fthz            = 0                 # 200 - Transition band BW_hz informed 
+#-------------------------------------------------------
+Fchz1           = 3000
+Fc1             = Fchz1 / Fs
+Fthz1           = 0                 # 200 - Transition band BW_hz informed 
 #------------------------------------------------------------------------------
 opf             = input("""
                             +---------------------------------------------------+    
@@ -97,12 +102,20 @@ else:
 # -----------------------------------------------------------------------------
 if Fthz > 0:
     M           = int(4/(Fc))
-
+#
 # --- M and cutoff informed ---------------------------------------------------
 else:
     Fc          = Fchz / Fs     #Set the cutoff frequency (between 0 and 0.5)
     M           = 100           #Set filter length (101 points)
-
+# -----------------------------------------------------------------------------
+if Fthz1 > 0:
+    M           = int(4/(Fc1))
+#
+# --- M and cutoff informed ---------------------------------------------------
+else:
+    Fc1         = Fchz1 / Fs    #Set the cutoff frequency (between 0 and 0.5)
+    M           = 100           #Set filter length (101 points)
+#
 # --- declare the array from h to M -------------------------------------------
 dim_h           = numpy.zeros(M)              #H[ ] holds the filter kernel
 dim_h1          = numpy.zeros(M)
@@ -116,6 +129,13 @@ for i in range(M):
     else:
         dim_h[i] = np.sin((2 * np.pi * Fc) * (i - M / 2)) / ( i - M / 2) 
 #
+for i in range(M):
+    if (i - M / 2) == 0:            #If Erro div 0 
+        dim_h1[i] = 2 * np.pi * Fc1
+    else:
+        dim_h1[i] = np.sin((2 * np.pi * Fc1) * (i - M / 2)) / ( i - M / 2) 
+#
+#
 # -----------------------------------------------------------------------------
 # Plot set of Results no Window...
 # -----------------------------------------------------------------------------
@@ -128,6 +148,9 @@ if (opc.upper() == "H"):        # --- Hamming window apllied
     #
     for i in range(M):
         dim_h[i] = dim_h[i] * (0.54 - 0.46 * np.cos(2 * np.pi * i / M))  
+    #
+    for i in range(M):
+        dim_h1[i] = dim_h1[i] * (0.54 - 0.46 * np.cos(2 * np.pi * i / M))  
 # -----------------------------------------------------------------------------
 elif (opc.upper() == "B"):      # --- Blackman window apllied
 # -----------------------------------------------------------------------------
@@ -135,6 +158,9 @@ elif (opc.upper() == "B"):      # --- Blackman window apllied
     #
     for i in range(M):
         dim_h[i] = dim_h[i] * (0.42 - 0.5 * np.cos(2 * np.pi * i / M) + 0.08 * np.cos(4 * np.pi * i / M))
+    #
+    for i in range(M):
+        dim_h1[i] = dim_h1[i] * (0.42 - 0.5 * np.cos(2 * np.pi * i / M) + 0.08 * np.cos(4 * np.pi * i / M))
 #
 # -----------------------------------------------------------------------------
 # Plot set of Results with Window...
@@ -151,10 +177,23 @@ for i in range(M):
 for i in range(M):
     dim_h[i] = dim_h[i] / soma
 #
+soma1 = 0
+for i in range(M):
+    soma1 = soma1 + dim_h1[i]
+#
+for i in range(M):
+    dim_h1[i] = dim_h1[i] / soma1
+#
+
 # -----------------------------------------------------------------------------
 # Plot set of Results with Window Normalized...
 # -----------------------------------------------------------------------------
 plotResults(opc_type, pcm_inp_file, "Windowed Normalized", dim_h, Fs, Fc, Fchz, Fthz, M)
+
+# -----------------------------------------------------------------------------
+# Plot set of Results with Window Normalized1...
+# -----------------------------------------------------------------------------
+plotResults(opc_type, pcm_inp_file, "Windowed Normalized", dim_h1, Fs, Fc1, Fchz1, Fthz, M)
 
 # -----------------------------------------------------------------------------
 if (opf == 2):              #'HIGH-PASS
@@ -180,17 +219,33 @@ if (opf == 3):              #'BAND-PASS
     
     dim_h1[int(M / 2)] = dim_h1[int(M / 2)] + 1
 
-    #- Inverte o Sinal das Amostras no dominio do tempo
+    # Plot LOW-PASS in Frequence
+    showrespFreq(f"LOW-PASS Windowed Normalized ({opc_type}) ", dim_h, Fs, Fc, Fchz, Fthz)
+
+    # Plot HIGH-PASS in Frequence
+    showrespFreq(f"HIGH-PASS Windowed Normalized ({opc_type}) ", dim_h1, Fs, Fc, Fchz, Fthz)
+
+    #-Soma LOW-PASS + HIGH-PASS
     for i in range(M):
-        dim_h[i] = -dim_h[i]
-    #        
-    #- Adiciona 1 no Centro de Simetria no dominio do tempo
-    dim_h[int(M / 2)] = dim_h[int(M / 2)] + 1
-    #
+        dim_h2[i] = dim_h[i] + dim_h1[i]
+
+    #-----------------------------------------
+    #-Faz a inversão da Soma acima -(PB + PA) 
+    #-----------------------------------------
+    for i in range(M):
+        dim_h2[i] = dim_h2[i] * -1
+
+    #-Adiciona 1 no Centro de Simetria 
+    dim_h2[int(M/2)] = dim_h2[int(M/2)] + 1
+
     # -----------------------------------------------------------------------------
     # Plot set of Results with Window Normalized...
     # -----------------------------------------------------------------------------
-    plotResults(opc_type, pcm_inp_file, "HIGH-PASS Windowed Normalized", dim_h, Fs, Fc, Fchz, Fthz, M)
+    plotResults(opc_type, pcm_inp_file, "BAND-PASS Windowed Normalized", dim_h2, Fs, Fc, Fchz, Fthz, M)
+    
+    #exit()
+
+
 
 # --- DEBUG -------------------------------------------------------------------
 #exit()
