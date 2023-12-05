@@ -1,0 +1,20 @@
+{
+    "project_name":       "bootloader",
+    "project_path":       "E:/Users/Avell/esp/esp-idf/components/bootloader/subproject",
+    "build_dir":          "E:/str_bootleg/Trabalho_M3/build/bootloader",
+    "config_file":        "E:/str_bootleg/Trabalho_M3/sdkconfig",
+    "config_defaults":    "",
+    "app_elf":            "bootloader.elf",
+    "app_bin":            "bootloader.bin",
+    "git_revision":       "v4.3.1-dirty",
+    "target":             "esp32",
+    "phy_data_partition": "",
+    "monitor_baud" :      "115200",
+    "monitor_toolprefix": "xtensa-esp32-elf-",
+    "config_environment" : {
+        "COMPONENT_KCONFIGS" : "E:/Users/Avell/esp/esp-idf/components/efuse/Kconfig;E:/Users/Avell/esp/esp-idf/components/esp32/Kconfig;E:/Users/Avell/esp/esp-idf/components/esp_common/Kconfig;E:/Users/Avell/esp/esp-idf/components/esp_system/Kconfig;E:/Users/Avell/esp/esp-idf/components/log/Kconfig;E:/Users/Avell/esp/esp-idf/components/newlib/Kconfig;E:/Users/Avell/esp/esp-idf/components/spi_flash/Kconfig",
+        "COMPONENT_KCONFIGS_PROJBUILD" : "E:/Users/Avell/esp/esp-idf/components/bootloader/Kconfig.projbuild;E:/Users/Avell/esp/esp-idf/components/esptool_py/Kconfig.projbuild;E:/Users/Avell/esp/esp-idf/components/partition_table/Kconfig.projbuild"
+    },
+    "build_components" : [ "bootloader", "bootloader_support", "efuse", "esp32", "esp_common", "esp_hw_support", "esp_rom", "esp_system", "esptool_py", "hal", "log", "main", "micro-ecc", "newlib", "partition_table", "soc", "spi_flash", "xtensa", "" ],
+    "build_component_paths" : [ "E:/Users/Avell/esp/esp-idf/components/bootloader", "E:/Users/Avell/esp/esp-idf/components/bootloader_support", "E:/Users/Avell/esp/esp-idf/components/efuse", "E:/Users/Avell/esp/esp-idf/components/esp32", "E:/Users/Avell/esp/esp-idf/components/esp_common", "E:/Users/Avell/esp/esp-idf/components/esp_hw_support", "E:/Users/Avell/esp/esp-idf/components/esp_rom", "E:/Users/Avell/esp/esp-idf/components/esp_system", "E:/Users/Avell/esp/esp-idf/components/esptool_py", "E:/Users/Avell/esp/esp-idf/components/hal", "E:/Users/Avell/esp/esp-idf/components/log", "E:/Users/Avell/esp/esp-idf/components/bootloader/subproject/main", "E:/Users/Avell/esp/esp-idf/components/bootloader/subproject/components/micro-ecc", "E:/Users/Avell/esp/esp-idf/components/newlib", "E:/Users/Avell/esp/esp-idf/components/partition_table", "E:/Users/Avell/esp/esp-idf/components/soc", "E:/Users/Avell/esp/esp-idf/components/spi_flash", "E:/Users/Avell/esp/esp-idf/components/xtensa", "" ]
+}
