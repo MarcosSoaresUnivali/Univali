@@ -4,11 +4,11 @@ Salva arquivo filtrado também em 16 bits
 Walter versão 1.0 
  */
 #include <stdio.h>
-#include <fcntl.h>
-#include <io.h>
+//#include <fcntl.h>
+//#include <io.h>
 
 
-#define NSAMPLES       100	// Tamanho da média
+#define NSAMPLES       4	// Tamanho da média
 
 int main()
 {
@@ -28,12 +28,12 @@ int main()
   
  
    /* abre os arquivos de entrada e saida */
-  if ((in_file = fopen("Sweep40_3400Hz.pcm","rb"))==NULL)
+  if ((in_file = fopen("..\\Sweep40_3400Hz.pcm","rb"))==NULL)
   {
     printf("\nErro: Nao abriu o arquivo de entrada\n");
     return 0;
   }
-  if ((out_file = fopen("Sai_3_Hamm_copy_Sweep40_3400Hz.pcm","wb"))==NULL)
+  if ((out_file = fopen("..\\Sai_3_Hamm_copy_Sweep40_3400Hz.pcm","wb"))==NULL)
   {
     printf("\nErro: Nao abriu o arquivo de saida\n");
     return 0;

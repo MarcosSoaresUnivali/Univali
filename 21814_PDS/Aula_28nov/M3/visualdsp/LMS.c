@@ -1,65 +1,48 @@
-/*****************************************************************************
- * t1_filtro_adapt.c
- *****************************************************************************/
 #include <stdio.h>
-#define NSAMPLES 8 	// MM
-<<<<<<< HEAD
-#define K 100 		// COEF DESEJADOS
-=======
-#define K 120 		// COEF DESEJADOS
->>>>>>> 0b1dba89766ebc20fe3eef674976212ff92f78c2
+#define NSAMPLES 8 // MM
+#define K 120 // COEF DESEJADOS
 
- 
-int main( void )
-{
-	/* Begin adding your custom code here */
+int main() {
+    
     FILE *in_file, *out_file, *out_erro, *out_d_file, *out_e_file;
     int n_amost = 0, i = 0;
-    short entrada, saida, vdsp_saida_d, vdsp_saida_e;
+    short entrada, saida, saida_d, saida_e;
     double coefW[K]= {0x0};
     short sample[K] = {0x0};
     float d = 0, y = 0, e = 0; 
     double erro = 0;
-<<<<<<< HEAD
-    double u = 0.000000000001;
-=======
     double u = 0.00000000001;
->>>>>>> 0b1dba89766ebc20fe3eef674976212ff92f78c2
-    int n = 0;	
-	
+    int n = 0;
+
     float coef[NSAMPLES] = {
         #include "Coeficiente_MM_8.dat" // MM -> 8
-    };	
+    };
 	
+    //float coef[NSAMPLES] = {
+    //    #include "Coeficiente_PB.dat" // MM -> 8
+    //};
+    
     if ((in_file = fopen("..\\ruido_branco.pcm", "rb")) == NULL){ // Sinal de entrada
         printf("\nErro: Nao abriu o arquivo de entrada\n");
         return 0;
-    }   
+    }
 
-    if ((out_file = fopen("..\\vdsp_saida_lms_dsp.pcm", "wb")) == NULL){ // Sinal de saida
+    if ((out_file = fopen("..\\saida_lms_dsp.pcm", "wb")) == NULL){ // Sinal de saida
         printf("\nErro: Nao abriu o arquivo de saida\n");
         return 0;
     }
-    if ((out_d_file = fopen("..\\vdsp_saida_lms_d_dsp.pcm", "wb")) == NULL){ // Sinal de saida
+    if ((out_d_file = fopen("..\\saida_lms_d_dsp.pcm", "wb")) == NULL){ // Sinal de saida
         printf("\nErro: Nao abriu o arquivo de saida\n");
         return 0;
     }
-<<<<<<< HEAD
-    if ((out_e_file = fopen("..\\vdsp_saida_lms_e_Walter.pcm", "wb")) == NULL){ // Sinal de saida
-        printf("\nErro: Nao abriu o arquivo de saida\n");
-        return 0;
-    }
-    if ((out_erro = fopen("..\\error_Walter.dat", "wb")) == NULL){ // Erro
-=======
-    if ((out_e_file = fopen("..\\vdsp_saida_lms_e_dsp.pcm", "wb")) == NULL){ // Sinal de saida
+    if ((out_e_file = fopen("..\\saida_lms_e_dsp.pcm", "wb")) == NULL){ // Sinal de saida
         printf("\nErro: Nao abriu o arquivo de saida\n");
         return 0;
     }
     if ((out_erro = fopen("..\\error.dat", "wb")) == NULL){ // Erro
->>>>>>> 0b1dba89766ebc20fe3eef674976212ff92f78c2
         printf("\nErro: Nao abriu o arquivo de saida\n");
         return 0;
-    }     
+    }
 
     do {
         n_amost = fread(&entrada, sizeof(short), 1, in_file);
@@ -99,10 +82,10 @@ int main( void )
 
         saida = (short)y;
         fwrite(&saida, sizeof(short), 1, out_file);
-        vdsp_saida_d = (short)d;
-        fwrite(&vdsp_saida_d, sizeof(short), 1, out_d_file);
-        vdsp_saida_e = (short)erro;
-        fwrite(&vdsp_saida_e, sizeof(short), 1, out_e_file);
+        saida_d = (short)d;
+        fwrite(&saida_d, sizeof(short), 1, out_d_file);
+        saida_e = (short)erro;
+        fwrite(&saida_e, sizeof(short), 1, out_e_file);
         fprintf(out_erro, "\n%f,", erro);
         i++;
     } while (n_amost);
@@ -116,8 +99,6 @@ int main( void )
     fclose(out_file);
     fclose(out_d_file);
     fclose(in_file);
-    printf("\n\nFile ready!");    
-    
-        
-	return 0;
+    printf("\n\nFile ready!");
+    return 0;
 }
