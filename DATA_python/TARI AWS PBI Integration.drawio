@@ -319,11 +319,19 @@
         <mxCell id="CtPyU6aLkwgzy3mVIZhx-151" value="_FE Crawler" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.glue_crawlers;" vertex="1" parent="CtPyU6aLkwgzy3mVIZhx-145">
           <mxGeometry x="30" y="42" width="65" height="65" as="geometry" />
         </mxCell>
+        <mxCell id="CtPyU6aLkwgzy3mVIZhx-192" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" edge="1" parent="CtPyU6aLkwgzy3mVIZhx-145" source="CtPyU6aLkwgzy3mVIZhx-152" target="CtPyU6aLkwgzy3mVIZhx-150">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="CtPyU6aLkwgzy3mVIZhx-152" value="_FE &lt;span style=&quot;background-color: initial;&quot;&gt;Job&lt;/span&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#C925D1;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.database_migration_workflow_job;" vertex="1" parent="CtPyU6aLkwgzy3mVIZhx-145">
           <mxGeometry x="160" y="42" width="41.66" height="65" as="geometry" />
         </mxCell>
         <mxCell id="CtPyU6aLkwgzy3mVIZhx-184" value="_UC Crawler" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.glue_crawlers;" vertex="1" parent="CtPyU6aLkwgzy3mVIZhx-145">
           <mxGeometry x="30" y="143" width="65" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="CtPyU6aLkwgzy3mVIZhx-193" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" edge="1" parent="CtPyU6aLkwgzy3mVIZhx-145" source="CtPyU6aLkwgzy3mVIZhx-185">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="240" y="175.5" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="CtPyU6aLkwgzy3mVIZhx-185" value="_UC&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;Job&lt;/span&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#C925D1;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.database_migration_workflow_job;" vertex="1" parent="CtPyU6aLkwgzy3mVIZhx-145">
           <mxGeometry x="160" y="143" width="41.66" height="65" as="geometry" />
@@ -333,6 +341,11 @@
         </mxCell>
         <mxCell id="CtPyU6aLkwgzy3mVIZhx-188" value="_UJ Crawler" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.glue_crawlers;" vertex="1" parent="CtPyU6aLkwgzy3mVIZhx-145">
           <mxGeometry x="31" y="247" width="65" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="CtPyU6aLkwgzy3mVIZhx-194" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" edge="1" parent="CtPyU6aLkwgzy3mVIZhx-145" source="CtPyU6aLkwgzy3mVIZhx-189">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="240" y="279.5" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="CtPyU6aLkwgzy3mVIZhx-189" value="_UJ&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;Job&lt;/span&gt;" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#C925D1;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=1;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.database_migration_workflow_job;" vertex="1" parent="CtPyU6aLkwgzy3mVIZhx-145">
           <mxGeometry x="161" y="247" width="41.66" height="65" as="geometry" />
