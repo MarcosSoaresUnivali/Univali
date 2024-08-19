@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/112.0.0.0" version="24.7.7">
   <diagram name="Página-1" id="c6UU8xq08x8CxFMYKwdJ">
-    <mxGraphModel dx="1333" dy="725" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="0.75" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
+    <mxGraphModel dx="2833" dy="1540" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="0.75" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="CtPyU6aLkwgzy3mVIZhx-16" value="powershell" parent="0" />
@@ -440,7 +440,7 @@
         <mxCell id="CtPyU6aLkwgzy3mVIZhx-160" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="CtPyU6aLkwgzy3mVIZhx-4" source="CtPyU6aLkwgzy3mVIZhx-148" target="CtPyU6aLkwgzy3mVIZhx-154">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="CtPyU6aLkwgzy3mVIZhx-148" value="AWS Redshift" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#8C4FFF;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=14;fontStyle=5;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.redshift;" vertex="1" parent="CtPyU6aLkwgzy3mVIZhx-4">
+        <mxCell id="CtPyU6aLkwgzy3mVIZhx-148" value="AWS Redshift&lt;div&gt;DW-TARI&lt;/div&gt;" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#8C4FFF;fillColor=#8C4FFF;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=14;fontStyle=5;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.redshift;" vertex="1" parent="CtPyU6aLkwgzy3mVIZhx-4">
           <mxGeometry x="1456.5" y="566.5" width="65" height="65" as="geometry" />
         </mxCell>
         <mxCell id="CtPyU6aLkwgzy3mVIZhx-161" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="CtPyU6aLkwgzy3mVIZhx-4" source="CtPyU6aLkwgzy3mVIZhx-149" target="CtPyU6aLkwgzy3mVIZhx-154">
